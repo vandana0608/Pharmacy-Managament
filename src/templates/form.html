@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} ViVa Pharmacy{% endblock %}</title>
+    <link rel="stylesheet" href='{% static "css/style.css" %}' />
+    <link rel="stylesheet" href='{% static "css/popup.css" %}' />
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'js/base.js' %}"> -->
+    <script type="text/javascript" src=' {% static "js/script.js" %}' >
+    </script>
+    <title> ViVa Pharmacy </title>
+</head>
+<body>
+    {% block content1 %}
+    
+    {% endblock %}
+</body>
+</html>

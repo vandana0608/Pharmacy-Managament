@@ -1,0 +1,10 @@
+{% block content %}
+
+<div align="center">
+    <form method="POST" action="/medicine/">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = 'submit' value="Submit" class="button" href ="#popup1"/>
+    </form>
+</div>
+{% endblock %}

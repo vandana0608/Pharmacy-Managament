@@ -1,0 +1,79 @@
+{% extends 'po.html' %}
+{% load staticfiles %}
+{% block title %} Purchase Order {% endblock %}
+{% block content1 %}
+    <body>
+        <header>
+            <h1>Purchase Order</h1>
+            <address contenteditable>
+				    <p>Ship To Address : </p>
+			</address>
+        </header>
+        <article>
+				<table class="meta">
+						{% for o in object %}
+								{% ifchanged %}
+									<tr>
+										<th><span contenteditable>PO #</span></th>
+										<td><span contenteditable>{{ o.purchase_orderno.purchase_orderno }}</span></td>
+									</tr>
+									<tr>
+										<th><span contenteditable> PO Date</span></th>
+										<td><span contenteditable>{{ o.purchase_orderno.purchase_orderdate }}</span></td>
+                                    </tr>
+                                    <tr>
+                                            <th><span contenteditable> Supplier Name </span></th>
+                                            <td><span contenteditable>{{ o.purchase_orderno.supplier_id.supplier_name }}</span></td>
+                                    </tr>
+								{% endifchanged %}
+						{% endfor %}
+					<tr>
+						<th><span contenteditable>PO Amount Due</span></th>
+						<td><span id="prefix" contenteditable>$</span><span>600.00</span></td>
+					</tr>
+				</table>
+            <table class="inventory">
+                <thead>
+                    <tr>
+                        <th><span contenteditable>Item</span></th>
+                        <th><span contenteditable>Description</span></th>
+                        <th><span contenteditable>Rate</span></th>
+                        <th><span contenteditable>Quantity</span></th>
+                        <th><span contenteditable>Tax (%)</span></th>
+                        <th><span contenteditable>Price</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {% for o in object %}
+                            <tr>
+                                <td><a class="cut">-</a><span contenteditable>{{ o.medicine_id.medicine_name }}</span></td>
+                                <td><span contenteditable>{{ o.medicine_id.medicine_groups.medicine_groups }}</span></td>
+                                <td><span data-prefix>$</span><span contenteditable>{{ o.medicine_id.medicine_price }}</span></td>
+                                <td><span contenteditable>{{ o.unit_quantity }}</span></td>
+                                <td><span contenteditable>{{ o.medicine_id.medicine_groups.medicine_tax }} %</span></td>
+                                <td><span data-prefix>$</span><span>{{ o.medicine_id.medicine_price }}</span></td>
+                            </tr>
+                        {% endfor %}
+                </tbody>
+            </table>
+            <a class="add">+</a>
+            <table class="balance">
+                <tr>
+                    <th><span contenteditable>Total</span></th>
+                    <td><span data-prefix>$</span><span>600.00</span></td>
+                </tr>
+                <tr>
+                    <th><span contenteditable>Additional Tax</span></th>
+                    <td><span contenteditable>0.00%</span></td>
+                </tr>
+                <tr>
+                    <th><span contenteditable>Balance Due</span></th>
+                    <td><span data-prefix>$</span><span>600.00</span></td>
+                </tr>
+            </table>
+        </article>
+        <aside>
+            <h1><span contenteditable></span></h1>
+        </aside>
+    </body>
+{% endblock %}
