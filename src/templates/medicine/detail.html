@@ -64,7 +64,6 @@
 </table>
 <br>
 <br>
-<a href="update/">
 <button onclick="generateBill()" class="w3-button w3-black w3-margin-bottom" style="float: right">
     Generate Bill
 </button>
@@ -115,8 +114,23 @@
                 data: JSON.stringify({items: items})
             }
         )
-        .done(response => {console.log(response)})
+        .done(response => {
+            document.open();
+            document.write(response);
+            document.close();
+        })
         .fail(error => {console.log(error)});
+
+        // $.ajax(
+        //     {
+        //         url: '/medicine/update/',
+        //         method: 'GET', 
+        //         headers : {"Content-type": "application/json", "X-CSRFToken": csrf_token}, 
+        //         data: JSON.stringify({items: items})
+        //     }
+        // )
+        // .done(response => {console.log(response)})
+        // .fail(error => {console.log(error)});
     }
     </script>
 {% endblock %}

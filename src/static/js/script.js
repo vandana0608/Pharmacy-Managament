@@ -108,6 +108,7 @@ function updateNumber(e) {
 
 function updateInvoice() {
 	var total = 0;
+	var p;
 	var cells, price, total, a, i;
 
 	// update inventory cells
@@ -118,13 +119,14 @@ function updateInvoice() {
 		cells = a[i].querySelectorAll('span:last-child');
 
 		// set price as cell[2] * cell[3]
-		price = (parseFloatHTML(cells[2]) * parseFloatHTML(cells[3]) * (parseFloatHTML(cells[4])/100)) + parseFloatHTML(cells[2]) * parseFloatHTML(cells[3]) ;
+		p = (parseFloatHTML(cells[2]) * parseFloatHTML(cells[3]) * (parseFloatHTML(cells[4])/100)) + parseFloatHTML(cells[2]) * parseFloatHTML(cells[3]) ;
+		price = p.toFixed();
 
 		// add price to total
-		total += price;
+		total += price.toFixed();
 
 		// set row total
-		cells[5].innerHTML = price;
+		cells[5].innerHTML = price.toFixed();
 	}
 
 	// update balance cells
@@ -134,7 +136,7 @@ function updateInvoice() {
 	cells = document.querySelectorAll('table.balance td:last-child span:last-child');
 
 	// set total
-	cells[0].innerHTML = total;
+	cells[0].innerHTML = total.toFixed();
 
 	// set balance and meta balance
 	cells[2].innerHTML = document.querySelector('table.meta tr:last-child td:last-child span:last-child').innerHTML = parsePrice(total - parseFloatHTML(cells[1]));

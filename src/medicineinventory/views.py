@@ -68,10 +68,10 @@ class MedicineinventoryDelete(DeleteView):
 
 
 def update(request) :
-    i=0
+    i=1
     global context
     global mqty
-    qtylist = {}
+    obj = []
 
     if request.method == 'POST' :
         data = json.loads(request.body) #dictionary
@@ -80,18 +80,17 @@ def update(request) :
             medicine = medicineinventory.objects.get(medicine_id=item['medicine_id'])
             medicine.quantity_on_hand -= int(item['quantity'])
             medicine.save()
+            obj.append({'medicine': medicine, 'quantity': int(item['quantity'])})
 
-    i += 1
     d = datetime.now()
     if(i<10) :
         bno = "BNO0{}".format(i)
     else :
         bno = "BNO{}".format(i)
-    obj = medicineinventory.objects.filter(medicine_id = 'MIDTAB12')
-    mqty = 3
+    # obj = medicineinventory.objects.filter(medicine_id = 'MIDTAB12')
+    #mqty = 30
     context = {
             'object' : obj,
-            'qty' : mqty,
             'date' : d,
             'billno' : bno
     }
