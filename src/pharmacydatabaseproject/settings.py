@@ -145,5 +145,5 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"media_cdn")
 # STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),"static_cdn")
 
 # my_project/settings.py
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/medicine/'
 LOGOUT_REDIRECT_URL = '/'
