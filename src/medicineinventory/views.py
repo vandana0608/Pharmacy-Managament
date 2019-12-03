@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 import random
 global data
+global i
 
 # Create your views here.
 def medicineinventory_detail_view(request):
@@ -70,6 +71,8 @@ class MedicineinventoryDelete(DeleteView):
 
 def update(request) :
     i=1
+    n=0
+    famt = 0
     global context
     global mqty
     obj = []
@@ -81,7 +84,13 @@ def update(request) :
             medicine = medicineinventory.objects.get(medicine_id=item['medicine_id'])
             medicine.quantity_on_hand -= int(item['quantity'])
             medicine.save()
-            obj.append({'medicine': medicine, 'quantity': int(item['quantity'])})
+            n = (int(item['quantity']) * medicine.medicine_price * (medicine.medicine_groups.medicine_tax/100))
+            total = medicine.medicine_price + n
+            famt += total
+
+            obj.append({'medicine': medicine, 'quantity': int(item['quantity']), 'price' : total})
+
+    
 
     d = datetime.now()
     
@@ -93,7 +102,8 @@ def update(request) :
     context = {
             'object' : obj,
             'date' : d,
-            'billno' : bno
+            'billno' : bno,
+            'finalamount' : famt,
     }
 
     return render(request,"createbill.html",context)

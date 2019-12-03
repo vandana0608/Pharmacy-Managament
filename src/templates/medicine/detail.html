@@ -120,17 +120,6 @@
             document.close();
         })
         .fail(error => {console.log(error)});
-
-        // $.ajax(
-        //     {
-        //         url: '/medicine/update/',
-        //         method: 'GET', 
-        //         headers : {"Content-type": "application/json", "X-CSRFToken": csrf_token}, 
-        //         data: JSON.stringify({items: items})
-        //     }
-        // )
-        // .done(response => {console.log(response)})
-        // .fail(error => {console.log(error)});
     }
     </script>
 {% endblock %}

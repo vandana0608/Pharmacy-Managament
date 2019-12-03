@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'purchase_detail',
     'bill_medicine',
     'pages',
+    'mathfilters',
 ]
 
 MIDDLEWARE = [

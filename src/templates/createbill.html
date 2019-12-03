@@ -23,7 +23,7 @@
             </tr>
             <tr>
                 <th><span>Bill Amount Due</span></th>
-                <td><span id="prefix">$</span><span>600.00</span></td>
+                <td><span id="prefix">$</span><span>{{ finalamount }}</span></td>
             </tr>
         </table>
         <table class="inventory">
@@ -45,7 +45,7 @@
                     <td><span>$ {{ o.medicine.medicine_price }}</span></td>
                     <td><span>{{ o.quantity }}</span></td>
                     <td><span>{{ o.medicine.medicine_groups.medicine_tax }} %</span></td>
-                    <td><span>$ {{ o.medicine.medicine_price }}</span></td>
+                    <td><span>$ {{ o.price }}</span></td>
                 </tr>
                 {% endfor %}
 
@@ -54,7 +54,7 @@
         <table class="balance">
             <tr>
                 <th><span>Total</span></th>
-                <td><span>$ 600.00</span></td>
+                <td><span>{{ finalamount }}</span></td>
             </tr>
             <tr>
                 <th><span>Amount Paid</span></th>
@@ -62,7 +62,7 @@
             </tr>
             <tr>
                 <th><span>Balance Due</span></th>
-                <td><span>$ 600.00</span></td>
+                <td><span>{{ finalamount }}</span></td>
             </tr>
         </table>
     </article>
