@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from .models import medicineinventory
 from datetime import datetime
 import json
+import random
 global data
 
 # Create your views here.
@@ -83,12 +84,12 @@ def update(request) :
             obj.append({'medicine': medicine, 'quantity': int(item['quantity'])})
 
     d = datetime.now()
+    
     if(i<10) :
         bno = "BNO0{}".format(i)
     else :
         bno = "BNO{}".format(i)
-    # obj = medicineinventory.objects.filter(medicine_id = 'MIDTAB12')
-    #mqty = 30
+    
     context = {
             'object' : obj,
             'date' : d,
