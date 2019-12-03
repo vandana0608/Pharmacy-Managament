@@ -6,7 +6,8 @@
         <address contenteditable>
                 <p>Customer Name : </p>
                 <p>Doctor Name : </p>
-            </address>
+        </address>
+        <span><img alt="" src="{% static 'images\\Capture1.jpg' %}"></span>
     </header>
     <article>
         <table class="meta">
@@ -54,15 +55,7 @@
         <table class="balance">
             <tr>
                 <th><span>Total</span></th>
-                <td><span>{{ finalamount }}</span></td>
-            </tr>
-            <tr>
-                <th><span>Amount Paid</span></th>
-                <td><span contenteditable>$ 0.00</span></td>
-            </tr>
-            <tr>
-                <th><span>Balance Due</span></th>
-                <td><span>{{ finalamount }}</span></td>
+                <td><span>$ {{ finalamount }}</span></td>
             </tr>
         </table>
     </article>
