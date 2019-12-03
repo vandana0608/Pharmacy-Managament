@@ -87,10 +87,8 @@ def update(request) :
             n = (int(item['quantity']) * medicine.medicine_price * (medicine.medicine_groups.medicine_tax/100))
             total = medicine.medicine_price + n
             famt += total
-
             obj.append({'medicine': medicine, 'quantity': int(item['quantity']), 'price' : total})
 
-    
 
     d = datetime.now()
     
