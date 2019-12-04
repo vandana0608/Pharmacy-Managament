@@ -30,6 +30,10 @@
             <th>Quantity on Hand</th>
             <th>Reorder Quantity</th>
             <th>Medicine Price</th>
+            <th>quantity</th>
+            <th>add to cart</th>
+
+            <!-- <th>wish list</th> -->
         </tr>
     </thead>
     <tbody>
@@ -49,7 +53,13 @@
                 <button
                     onclick="addToCart('{{ medicineinventory.medicine_id }}', '{{ medicineinventory.quantity_on_hand }}')"
                     class="w3-button w3-black w3-margin-bottom">Add to cart</button>
+                    
             </td>
+            <!-- <td>
+                <button
+                    onclick="addTowish('{{ medicineinventory.medicine_id }}', '{{ medicineinventory.quantity_on_hand }}')"
+                    class="w3-button w3-black w3-margin-bottom">wish list</button>
+            </td> -->
         </tr>
         {% if  medicineinventory.quantity_on_hand <= medicineinventory.reorder_quantity %}
         <script>
@@ -58,6 +68,7 @@
         <div align="center">
             <a class="w3-button w3-black w3-margin-top" href="{% url "medicineinventory_edit" medicineinventory.medicine_id %}">ADD</a>
         </div>
+        
         {% endif %}
         {% endfor %}
     </tbody>
@@ -121,5 +132,20 @@
         })
         .fail(error => {console.log(error)});
     }
+    // function addTowish(medicine_id, stock) {
+    //     let item = cart.find(c => c.medicine_id === medicine_id);
+    //     if (item) return alert('Item already in cart');
+    
+    //     const quantity = document.getElementById(`${medicine_id}_newQuantity`).value;
+
+    //     if(quantity == 0) return alert('Quantity cannot be zero');
+    
+    //     if (stock - quantity < 0) return alert('Quantity is more than the stock');
+    
+    //     cart.push({ medicine_id: medicine_id, quantity: quantity });
+        
+    //     alert('Added to wishlist')
+    //     console.log(cart);
+    // }
     </script>
 {% endblock %}
