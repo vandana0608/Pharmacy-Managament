@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 class supplier(models.Model) :
-    supplier_id = models.CharField(max_length=10, default='SUPPID',primary_key=True)
+    supplier_id = models.CharField(max_length=10, default='SID',primary_key=True)
     supplier_name = models.CharField(max_length=25, default='xxx')
     supplier_address = models.CharField(max_length=30, default='xxx')
     supplier_contactno = models.CharField(max_length=12,default='080-')
