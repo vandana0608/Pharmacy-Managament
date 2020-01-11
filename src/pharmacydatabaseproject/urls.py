@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 from invoice_medicine.views import invoice_medicine_detail_view , invoicemedicine_add_view
 from medicineinventory.views import medicineinventory_detail_view , update
 from bill_medicine.views import bill_medicine_detail_view
-from bills.views import bill_add_view
+from bills.views import bill_add_view , createb
 from purchase_detail.views import purchase_detail_view , pod_add_view
 from payment.views import payment_detail_view , payment_add_view
 #from supplier.views import supplier_detail_view , supplier_add_view
@@ -47,7 +47,9 @@ urlpatterns = [
     path('bill/',bill_medicine_detail_view,name='bill'),
     path('medicine/update/',update),
 
-    path('createbill/',update),
+    path('createbill/',createb),
+
+    # path('')
 
     #path('addmedicine/',medicineinventory_add_view,name='addmedicine'),
     path('addmedicinegroup/',medicinegroup_add_view,name='addmedicinegroup'),
