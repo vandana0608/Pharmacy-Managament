@@ -82,7 +82,17 @@
         <br>
         <br>
         <div class="box">
-                {% include 'create.html' %}
+            <a class="button" href="#popup1">Submit</a>
+        </div>
+    
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2>Thank You!</h2>
+                <a class="close" href="/medicine/">&times;</a>
+                <div class="content">
+                    Happy Purchasing.
+                </div>
+            </div>
         </div>
     </body>
 {% endblock %}
