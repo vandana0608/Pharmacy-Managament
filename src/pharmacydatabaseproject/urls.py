@@ -47,7 +47,7 @@ urlpatterns = [
     path('bill/',bill_medicine_detail_view,name='bill'),
     path('medicine/update/',update),
 
-    path('createbill/',createb),
+    path('bill/update/',createb),
 
     # path('')
 

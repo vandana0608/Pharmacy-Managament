@@ -18,11 +18,9 @@ import json
 def createb(request) :
     if request.method == 'POST' :
         data = json.loads(request.body) #dictionary
-        
-        for item in data['items']:
-            bill_no = item['billno']
-            bill_date = item['date']
-            bill_final_amount = item['finalamount']
-            bill.save(bill_no,bill_date,bill_final_amount)
+        billno = data['billno']
+        billdate = data['date']
+        billfinalamount = data['finalamount']
+        bill.save(bill_no = billno, bill_date = billdate, bill_amount = billfinalamount)
 
-    return render(request,"medicine\detail.html",context)
+    return render(request,"createbill.html")

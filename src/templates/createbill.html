@@ -92,7 +92,8 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script>
-    var cart = object;
+    var cart = [];
+    cart.push({billno: billno, date: date, finalamount: finalamount});
     function createBill() {
         let items = cart;
         var csrf_token = $('[name=csrfmiddlewaretoken]').val();
